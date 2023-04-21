@@ -1,6 +1,6 @@
-import { Platform } from "react-native";
-import RNCallKeep from "react-native-callkeep";
-import uuid from "uuid";
+import {Platform} from 'react-native';
+import RNCallKeep from 'react-native-callkeep';
+import uuid from 'react-native-uuid';
 
 class IncomingCall {
   constructor() {
@@ -10,11 +10,11 @@ class IncomingCall {
   configure = (incomingcallAnswer, endIncomingCall) => {
     try {
       this.setupCallKeep();
-      Platform.OS === "android" && RNCallKeep.setAvailable(true);
-      RNCallKeep.addEventListener("answerCall", incomingcallAnswer);
-      RNCallKeep.addEventListener("endCall", endIncomingCall);
+      Platform.OS === 'android' && RNCallKeep.setAvailable(true);
+      RNCallKeep.addEventListener('answerCall', incomingcallAnswer);
+      RNCallKeep.addEventListener('endCall', endIncomingCall);
     } catch (error) {
-      console.error("initializeCallKeep error:", error?.message);
+      console.error('initializeCallKeep error:', error?.message);
     }
   };
 
@@ -22,26 +22,26 @@ class IncomingCall {
     try {
       RNCallKeep.setup({
         ios: {
-          appName: "VideoSDK",
+          appName: 'VideoSDK',
           supportsVideo: false,
-          maximumCallGroups: "1",
-          maximumCallsPerCallGroup: "1",
+          maximumCallGroups: '1',
+          maximumCallsPerCallGroup: '1',
         },
         android: {
           additionalPermissions: [],
-          alertTitle: "Permissions required",
+          alertTitle: 'Permissions required',
           alertDescription:
-            "This application needs to access your phone accounts",
-          cancelButton: "Cancel",
-          okButton: "Ok",
+            'This application needs to access your phone accounts',
+          cancelButton: 'Cancel',
+          okButton: 'Ok',
         },
       });
     } catch (error) {
-      console.error("initializeCallKeep error:", error?.message);
+      console.error('initializeCallKeep error:', error?.message);
     }
   };
   // Use startCall to ask the system to start a call - Initiate an outgoing call from this point
-  startCall = ({ handle, localizedCallerName }) => {
+  startCall = ({handle, localizedCallerName}) => {
     // Your normal start call action
     RNCallKeep.startCall(this.getCurrentCallId(), handle, localizedCallerName);
   };
@@ -57,19 +57,19 @@ class IncomingCall {
   };
 
   removeEvents = () => {
-    RNCallKeep.removeEventListener("answerCall");
-    RNCallKeep.removeEventListener("endCall");
+    RNCallKeep.removeEventListener('answerCall');
+    RNCallKeep.removeEventListener('endCall');
   };
 
-  displayIncomingCall = (callerName) => {
-    Platform.OS === "android" && RNCallKeep.setAvailable(false);
+  displayIncomingCall = callerName => {
+    Platform.OS === 'android' && RNCallKeep.setAvailable(false);
     RNCallKeep.displayIncomingCall(
       this.getCurrentCallId(),
       callerName,
       callerName,
-      "number",
+      'number',
       true,
-      null
+      null,
     );
   };
 
@@ -91,7 +91,7 @@ class IncomingCall {
   };
 
   setupEventListeners() {
-    if (Platform.OS == "ios") {
+    if (Platform.OS == 'ios') {
       // --- NOTE: You still need to subscribe / handle the rest events as usuall.
       // --- This is just a helper whcih cache and propagate early fired events if and only if for
       // --- "the native events which DID fire BEFORE js bridge is initialed",

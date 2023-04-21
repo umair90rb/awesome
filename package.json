@@ -23,11 +23,11 @@
     "react-native-device-info": "^10.6.0",
     "react-native-safe-area-context": "^4.5.1",
     "react-native-screens": "^3.20.0",
+    "react-native-uuid": "^2.0.1",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
     "redux-observable": "^2.0.0",
     "rxjs": "^7.8.0",
-    "uuid": "^9.0.0",
     "videosdk-rn-android-overlay-permission": "^1.0.6"
   },
   "devDependencies": {
