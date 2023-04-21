@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "67116578030",
+    "project_id": "awesome-cdaba",
+    "storage_bucket": "awesome-cdaba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67116578030:android:c0e2b63c78ec27699cafff",
+        "android_client_info": {
+          "package_name": "com.awesome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67116578030-geactnl2mlk8pa1eher1rscg12dth8oh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdRx8ZhJk2_8SC0x4SMpHENVTAkWG0gmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67116578030-geactnl2mlk8pa1eher1rscg12dth8oh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
